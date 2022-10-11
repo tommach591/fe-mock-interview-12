@@ -1,0 +1,11 @@
+.Tasks {
+  display: flex;
+}
+
+.Task {
+  border: 1px solid black;
+  margin: 0.5rem;
+  min-height: 3rem;
+  width: 10rem;
+  text-align: left;
+}

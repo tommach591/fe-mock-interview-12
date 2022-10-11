@@ -1,0 +1,18 @@
+.ModalContents {
+  border: 1px solid black;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-49%, -50%);
+  background-color: white;
+  padding: 1rem;
+}
+
+.ModalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}

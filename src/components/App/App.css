@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+  border: 1px solid black;
+  height: 98vh;
+  width: 99vw;
+}
+
+.Input {
+  margin: 0.5rem;
+}
+
+.DeleteButton {
+  color: red;
+}
+
+.DeleteButton:hover {
+  cursor: pointer;
+}
+
+.ButtonContainer {
+  margin-top: 1rem;
+}
+
+.Button {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
