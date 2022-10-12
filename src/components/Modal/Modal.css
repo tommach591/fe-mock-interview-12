@@ -6,6 +6,10 @@
   transform: translate(-49%, -50%);
   background-color: white;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .ModalBackground {

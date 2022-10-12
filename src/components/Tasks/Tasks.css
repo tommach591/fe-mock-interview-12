@@ -9,3 +9,19 @@
   width: 10rem;
   text-align: left;
 }
+
+.Task:hover {
+  cursor: pointer;
+}
+
+.ActiveColorTags {
+  display: flex;
+}
+
+.ColorCircle {
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin: 0.2rem;
+}
