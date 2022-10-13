@@ -1,0 +1,16 @@
+.ColorBar {
+  border: 1px solid black;
+  margin-top: -1px;
+  width: 19.75rem;
+  height: 1.5rem;
+}
+
+.ColorBar:hover {
+  cursor: pointer;
+}
+
+.X {
+  position: fixed;
+  left: 19.75rem;
+  color: white;
+}

@@ -3,7 +3,7 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-49%, -50%);
+  transform: translate(-49.5%, -49.5%);
   background-color: white;
   padding: 1rem;
   display: flex;

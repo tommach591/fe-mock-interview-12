@@ -1,5 +1,6 @@
 .Tab {
   border: 1px solid black;
+  padding: 1px;
   margin: 0.5rem;
   height: 3rem;
   width: 10rem;

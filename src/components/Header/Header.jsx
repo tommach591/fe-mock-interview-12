@@ -19,8 +19,10 @@ function Header({ tabs, handleAddNewTab, handleUpdateTab }) {
   };
   return (
     <div className="Header">
-      {getListOfTabs()}
-      <NewTab handleAddNewTab={handleAddNewTab} />
+      <div className="HeaderContents">
+        {getListOfTabs()}
+        <NewTab handleAddNewTab={handleAddNewTab} />
+      </div>
     </div>
   );
 }

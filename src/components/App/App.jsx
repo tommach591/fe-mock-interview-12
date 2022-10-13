@@ -3,7 +3,8 @@ import { useState, useRef } from "react";
 import { colors } from "../../utils/helper";
 import Header from "../Header";
 import Modal from "../Modal";
-import Tasks from "../Tasks";
+import TaskGrid from "../TaskGrid";
+import ColorBar from "../ColorBar";
 
 function App() {
   const [modalState, setModalState] = useState("");
@@ -28,6 +29,21 @@ function App() {
       updatedUserTasksColor[column][row].push(color);
       setUserTasksColor(updatedUserTasksColor);
     }
+  };
+
+  let dragAndDropTask = (draggedTaskColumn, draggedTaskRow, newColumn) => {
+    let updatedUserTasks = [...userTasks];
+    let removedTask = updatedUserTasks[draggedTaskColumn][draggedTaskRow];
+    updatedUserTasks[draggedTaskColumn].splice(draggedTaskRow, 1);
+    updatedUserTasks[newColumn].push(removedTask);
+    setUserTasks(updatedUserTasks);
+
+    let updatedUserTasksColor = [...userTasksColor];
+    let removedTaskColor =
+      updatedUserTasksColor[draggedTaskColumn][draggedTaskRow];
+    updatedUserTasksColor[draggedTaskColumn].splice(draggedTaskRow, 1);
+    updatedUserTasksColor[newColumn].push(removedTaskColor);
+    setUserTasksColor(updatedUserTasksColor);
   };
 
   let handleAddNewTab = () => {
@@ -240,45 +256,35 @@ function App() {
               ></div>
             );
           })}
-          <div className={dropBarOn ? "Arrow Up" : "Arrow Down"}></div>
+          <div className={dropBarOn ? "Arrow Up" : "Arrow Down"} />
         </div>
         {dropBarOn ? (
           <div className="ColorTagOptions">
-            <div
-              className="ColorBar"
-              style={{ background: colors[0] }}
-              onClick={() => {
-                updateColor(colors[0]);
-              }}
-            ></div>
-            <div
-              className="ColorBar"
-              style={{ background: colors[1] }}
-              onClick={() => {
-                updateColor(colors[1]);
-              }}
-            ></div>
-            <div
-              className="ColorBar"
-              style={{ background: colors[2] }}
-              onClick={() => {
-                updateColor(colors[2]);
-              }}
-            ></div>
-            <div
-              className="ColorBar"
-              style={{ background: colors[3] }}
-              onClick={() => {
-                updateColor(colors[3]);
-              }}
-            ></div>
-            <div
-              className="ColorBar"
-              style={{ background: colors[4] }}
-              onClick={() => {
-                updateColor(colors[4]);
-              }}
-            ></div>
+            <ColorBar
+              updateColor={updateColor}
+              task={userTasksColor[column][row]}
+              color={colors[0]}
+            />
+            <ColorBar
+              updateColor={updateColor}
+              task={userTasksColor[column][row]}
+              color={colors[1]}
+            />
+            <ColorBar
+              updateColor={updateColor}
+              task={userTasksColor[column][row]}
+              color={colors[2]}
+            />
+            <ColorBar
+              updateColor={updateColor}
+              task={userTasksColor[column][row]}
+              color={colors[3]}
+            />
+            <ColorBar
+              updateColor={updateColor}
+              task={userTasksColor[column][row]}
+              color={colors[4]}
+            />
           </div>
         ) : (
           <div></div>
@@ -355,11 +361,12 @@ function App() {
         handleAddNewTab={handleAddNewTab}
         handleUpdateTab={handleUpdateTab}
       />
-      <Tasks
+      <TaskGrid
         userTasks={userTasks}
         userTasksColor={userTasksColor}
         handleAddNewTask={handleAddNewTask}
         handleUpdateTask={handleUpdateTask}
+        dragAndDropTask={dragAndDropTask}
       />
       {modalState === "AddNewTab" ? addNewTabModal() : <div />}
       {modalState === "UpdateTab" ? updateTabModal() : <div />}

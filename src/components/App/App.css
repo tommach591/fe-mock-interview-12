@@ -2,7 +2,9 @@
   text-align: center;
   border: 1px solid black;
   height: 98vh;
-  width: 99vw;
+  font-family: cursive;
+  overflow-x: auto;
+  overflow-y: auto;
 }
 
 .Input {
@@ -66,15 +68,4 @@
 .ColorTagOptions {
   position: fixed;
   top: 12.965rem;
-}
-
-.ColorBar {
-  border: 1px solid black;
-  margin-top: -1px;
-  width: 19.75rem;
-  height: 1.5rem;
-}
-
-.ColorBar:hover {
-  cursor: pointer;
 }
